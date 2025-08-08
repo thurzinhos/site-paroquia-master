@@ -1,0 +1,59 @@
+-- Criando o banco de dados (opcional, se você ainda não tiver um)
+CREATE DATABASE IF NOT EXISTS paroquia_nsf CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE paroquia_nsf;
+
+-- Tabela para os usuários administradores
+-- A senha será armazenada de forma segura usando hash
+CREATE TABLE `admins` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `username` VARCHAR(50) NOT NULL UNIQUE,
+  `password_hash` VARCHAR(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Tabela para armazenar o conteúdo da página de sacramentos
+-- Usamos TEXT para campos que podem ter mais conteúdo (como listas HTML)
+CREATE TABLE `pagina_sacramentos` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `titulo_catequese` VARCHAR(255) NOT NULL,
+  `info_catequese` TEXT NOT NULL,
+  `aviso_catequese` TEXT NOT NULL,
+  `titulo_documentacao` VARCHAR(255) NOT NULL,
+  `docs_pais_paroquianos` TEXT NOT NULL,
+  `docs_pais_outra_paroquia` TEXT NOT NULL,
+  `docs_padrinhos_paroquianos` TEXT NOT NULL,
+  `docs_padrinhos_outra_paroquia` TEXT NOT NULL,
+  `docs_padrinhos_consagracao` TEXT NOT NULL,
+  `info_taxa` VARCHAR(255) NOT NULL,
+  `titulo_info_adicionais` VARCHAR(255) NOT NULL,
+  `info_adicionais` TEXT NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Tabela para gerenciar as datas do batismo de forma dinâmica
+CREATE TABLE `datas_batismo` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `mes` VARCHAR(50) NOT NULL,
+  `dias_horarios` VARCHAR(255) NOT NULL,
+  `ordem` INT NOT NULL DEFAULT 0 -- Para controlar a ordem de exibição
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Para começar, você precisa de um usuário administrador.
+-- Execute este comando para criar um usuário 'admin' com a senha 'senha123'.
+-- IMPORTANTE: Troque 'senha123' por uma senha forte no seu ambiente real!
+-- A senha é 'senha123'
+INSERT INTO `admins` (`username`, `password_hash`) VALUES
+('admin', '$2y$12$LxAUmUxc99yEYSgGECw0d.7.NEPkrHXT./YqZ9Zgnb8glpKpbNybe');
+
+-- E também precisamos inserir os dados iniciais na página, que você pode editar depois.
+-- Copiei o conteúdo do seu arquivo sacramentos.php para cá.
+INSERT INTO `pagina_sacramentos` (`id`, `titulo_catequese`, `info_catequese`, `aviso_catequese`, `titulo_documentacao`, `docs_pais_paroquianos`, `docs_pais_outra_paroquia`, `docs_padrinhos_paroquianos`, `docs_padrinhos_outra_paroquia`, `docs_padrinhos_consagracao`, `info_taxa`, `titulo_info_adicionais`, `info_adicionais`) VALUES
+(1, 'SACRAMENTOS - BATISMO (CATEQUESE BATISMAL)', '<ul>\n                    <li>É realizado na <strong>paróquia de território ou que tenha vínculo</strong></li>\n                    <li>Padrinhos realizam a catequese <strong>junto</strong> com os pais (caso os pais sejam de outra cidade, devem fazer o mesmo na paróquia de seu território)</li>\n                    <li>É feito na casa dos pais e o horário é flexível dependendo da disponibilidade dos agentes</li>\n                    <li>A inscrição é feita na <strong>secretaria paroquial</strong>, traga junto o comprovante de endereço e/ou carteirinha de dizimista</li>\n                </ul>', '<h4>Já realizou a inscrição?</h4>\n                <p>Aguarde os agentes entrarem em contato com você, para assim após a finalização do curso, darmos andamento na documentação.</p>', 'SACRAMENTOS - BATISMO (DATAS E DOCUMENTAÇÃO)', '<h4>DOCUMENTAÇÃO</h4>\n                    <p><strong>DOCUMENTO DOS PAIS</strong> *caso sejam <strong>NOSSOS PAROQUIANOS</strong>:</p>\n                    <ul>\n                        <li>Certidão de nascimento da criança;</li>\n                        <li>Comprovante de Endereço;</li>\n                        <li>Comprovante do Encontro em preparação ao Batismo;</li>\n                        <li>Certidão de casamento no religioso (caso sejam casados).</li>\n                    </ul>', '<p><strong>DOCUMENTOS DOS PAIS</strong> caso sejam de <strong>OUTRA PARÓQUIA</strong>:</p>\n                    <ul>\n                        <li>Certidão de nascimento da criança;</li>\n                        <li>Autorização da paróquia que pertencem.</li>\n                    </ul>', '<h4>DOCUMENTAÇÃO</h4>\n                    <p><strong>DOCUMENTO DOS PADRINHOS</strong> *caso sejam <strong>NOSSOS PAROQUIANOS</strong>:</p>\n                    <ul>\n                        <li>Certidão de casamento no religioso;</li>\n                        <li>Comprovante de Endereço;</li>\n                        <li>Comprovante do Encontro em preparação ao Batismo;</li>\n                        <li>Certidão da Crisma, caso for solteiro.</li>\n                    </ul>', '<p><strong>DOCUMENTOS DOS PADRINHOS</strong> caso sejam de <strong>OUTRA PARÓQUIA</strong>:</p>\n                    <ul>\n                        <li>Autorização da paróquia que pertencem;</li>\n                    </ul>', '<p><strong>DOCUMENTOS DOS PADRINHOS DE CONSAGRAÇÃO</strong> (serem católicos):</p>\n                    <ul>\n                        <li>Cópia do RG.</li>\n                    </ul>', 'Taxa: 30,00 (Isentos para dizimistas)', 'INFORMAÇÕES ADICIONAIS', '<ul>\n                    <li><strong>É FEITO A APRESENTAÇÃO DO BATIZANDO NA QUARTA-FEIRA QUE ANTECEDE A DATA DO BATISMO, NA MISSA DAS 19:00</strong> - Os pais devem vir à celebração com o batizando para a apresentação.</li>\n                    <li>Devem ser entregues as <strong>cópias físicas dos documentos</strong> na secretaria paroquial.</li>\n                    <li><strong>Não recebemos documentação via WhatsApp e não fazemos cópias.</strong></li>\n                    <li><strong>Vagas limitadas.</strong> Recebemos inscrições até a quarta-feira que antecede a data do batismo.</li>\n                    <li><strong>Agendamento</strong> é feito somente mediante entrega dos documentos em cópia.</li>\n                </ul>');
+
+-- Inserindo as datas do batismo
+INSERT INTO `datas_batismo` (`mes`, `dias_horarios`, `ordem`) VALUES
+('JUNHO', '14 - 16HRS e 29 - 11HRS', 1),
+('JULHO', '12 - 16HRS e 27 - 11HRS', 2),
+('AGOSTO', '09 - 16HRS e 24 - 11HRS', 3),
+('SETEMBRO', '13 - 16HRS e 28 - 11HRS', 4),
+('OUTUBRO', '11 - 16HRS e 26 - 11HRS', 5),
+('NOVEMBRO', '15 - 16HRS e 30 - 11HRS', 6),
+('DEZEMBRO', '13 - 16HRS e 28 - 11HRS', 7);

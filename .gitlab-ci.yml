@@ -1,0 +1,44 @@
+image: php:8.2
+
+services:
+  - mariadb:latest
+
+variables:
+  MYSQL_DATABASE: paroquia_nsf
+  MYSQL_ROOT_PASSWORD: root
+  DB_HOST: mariadb
+  DB_PORT: 3306
+  DB_USERNAME: root
+  DB_PASSWORD: root
+
+before_script:
+  - apt-get update && apt-get install -y unzip git zip libzip-dev libmariadb-dev
+  - docker-php-ext-install pdo pdo_mysql
+  - curl -sS https://getcomposer.org/installer | php
+  - mv composer.phar /usr/local/bin/composer
+  - composer install
+
+stages:
+  - test
+
+test_job:
+  stage: test
+  script:
+    - php -v
+    - echo "Testando conexão com MariaDB..."
+    - |
+      php -r '
+      $host = getenv("DB_HOST");
+      $port = getenv("DB_PORT");
+      $db   = getenv("MYSQL_DATABASE");
+      $user = getenv("DB_USERNAME");
+      $pass = getenv("DB_PASSWORD");
+      $dsn = "mysql:host=$host;port=$port;dbname=$db";
+      try {
+        $pdo = new PDO($dsn, $user, $pass);
+        echo "Conexão com MariaDB OK!\n";
+      } catch (PDOException $e) {
+        echo "Erro na conexão: " . $e->getMessage() . "\n";
+        exit(1);
+      }
+      '

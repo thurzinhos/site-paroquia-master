@@ -1,0 +1,275 @@
+/* Definição de variáveis de cor e reset básico */
+:root {
+    --primary-orange: #d89e2c;
+    --dark-text: #3d3d3d;
+    --light-text: #ffffff;
+    --background-overlay: rgba(212, 158, 23, 0.31); /* Fundo branco levemente transparente */
+}
+
+/* Reset e configurações globais do corpo da página */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--dark-text);
+    background-image: url('/imagens/FotoFundo3.png');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    line-height: 1.6;
+}
+
+.site-header {
+    background-color: var(--background-overlay);
+    padding: 15px 5%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    height: 80px;
+    width: 80px;
+}
+
+.parish-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.parish-address {
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    background-color: var(--primary-orange);
+    color: var(--light-text);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.1);
+    background-color: #c28b22;
+}
+
+/* Estilos do Conteúdo Principal */
+.main-content {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.content-section {
+    background-color: transparent; /* O fundo da seção é o fundo da página */
+}
+
+/* Título laranja de cada seção */
+.section-title {
+    background-color: var(--primary-orange);
+    color: var(--dark-text);
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.section-body-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Coluna principal 2x maior que a lateral */
+    gap: 30px;
+    align-items: start;
+}
+
+.main-column h3, .main-column h4 {
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+.main-column ul {
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+.main-column li {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+/* Caixa lateral (Inscrição e Datas) */
+.side-column-box {
+    background-color: var(--primary-orange);
+    color: var(--dark-text);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.h4-wrap {
+    background-color: var(--primary-orange);
+    color: var(--dark-text);
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.side-column-box h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.side-column-box p, .side-column-box li {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.dates-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dates-box li {
+    margin-bottom: 10px;
+}
+
+/* Grid para documentação */
+.docs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.doc-column h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.doc-column p {
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+.doc-column ul {
+    list-style: disc;
+    padding-left: 20px;
+    font-size: 1rem;
+}
+.doc-column li {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+
+/* Selo da taxa */
+.tax-badge {
+    background-color: var(--primary-orange);
+    color: var(--dark-text);
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-align: center;
+    font-weight: 600;
+    max-width: 350px;
+    margin: 20px auto 0 auto;
+}
+
+/* Botão de Menu Fixo */
+.menu-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--primary-orange);
+    color: var(--dark-text);
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    z-index: 999;
+}
+
+.menu-button:hover {
+    transform: scale(1.05);
+}
+
+/* --- Media Queries para Responsividade --- */
+
+/* Telas menores (tablets) */
+@media (max-width: 992px) {
+    .section-body-grid {
+        grid-template-columns: 1fr; /* Colunas empilhadas */
+    }
+    .documentation-section .side-column-box {
+        order: -1; /* Coloca a caixa de datas no topo */
+    }
+    .docs-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Telas de celular */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .parish-name {
+        font-size: 1.2rem;
+    }
+    .parish-address {
+        font-size: 0.8rem;
+    }
+    .main-content {
+        margin-top: 20px;
+    }
+    .section-title {
+        font-size: 1rem;
+    }
+    .main-column h3, .main-column h4 {
+        font-size: 1.5rem;
+    }
+    .main-column li {
+        font-size: 1rem;
+    }
+}

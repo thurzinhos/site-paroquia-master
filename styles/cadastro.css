@@ -1,0 +1,139 @@
+/* styles/cadastro.css */
+
+/* Importa as variáveis e estilos base para consistência */
+@import url('style.css'); /* Adapte o caminho se necessário */
+
+body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--dark-text, #3d3d3d);
+    background-image: url('../imagens/FotoFundo3.png'); /* Garanta que o caminho está correto */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    line-height: 1.6;
+}
+
+/* Container principal para o formulário */
+.main-content {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco semi-transparente para legibilidade */
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.form-header h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--dark-text, #3d3d3d);
+    margin-bottom: 10px;
+}
+
+.form-header p {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 30px;
+}
+
+/* Grid para organizar os campos do formulário */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Duas colunas */
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo para campos que ocupam a largura total */
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f8f9fa;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-orange, #d89e2c);
+    box-shadow: 0 0 0 3px rgba(216, 158, 44, 0.25);
+}
+
+/* Estilos para Radio e Checkbox */
+.radio-group, .checkbox-group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.radio-group label, .checkbox-group label {
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+/* Grid para as pastorais */
+.pastorais-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Três colunas */
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.form-actions {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btn-submit {
+    background-color: var(--primary-orange, #d89e2c);
+    color: var(--light-text, #fff);
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    text-transform: uppercase;
+}
+
+.btn-submit:hover {
+    background-color: #c28b22;
+    transform: scale(1.05);
+}
+
+/* Rodapé da página */
+.site-footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .form-grid, .pastorais-grid {
+        grid-template-columns: 1fr;
+    }
+}
