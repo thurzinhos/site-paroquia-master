@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-orange: #d89e2c;
+    --dark-text: #3d3d3d;
+    --light-text: #ffffff;
+    --background-overlay: rgba(212, 158, 23, 0.31);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--dark-text);
+    background-image: url('../imagens/FotoFundo3.png');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    line-height: 1.7;
+}
+
+.site-header {
+    background-color: var(--background-overlay);
+    padding: 15px 5%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    height: 80px;
+    width: 80px;
+}
+
+.parish-info .parish-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--dark-text);
+}
+
+.parish-info .parish-address {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--dark-text);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    background-color: var(--primary-orange);
+    color: var(--light-text);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.1);
+    background-color: #c28b22;
+}
+
+.main-content {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.94);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.page-title {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.parish-section {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.parish-section.reverse {
+    flex-direction: row-reverse;
+}
+
+.section-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.section-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.section-text {
+    flex: 1.5;
+}
+
+.section-text h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--primary-orange);
+    margin-bottom: 15px;
+}
+
+.section-text p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.priests-section {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 2px solid #eee;
+}
+
+.priests-section h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 40px;
+}
+
+.priests-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.priest-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    width: 250px;
+    transition: transform 0.3s ease;
+}
+
+.priest-card:hover {
+    transform: translateY(-5px);
+}
+
+.priest-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 4px solid var(--primary-orange);
+}
+
+.priest-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.priest-card p {
+    color: #777;
+    font-style: italic;
+}
+
+.menu-button {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: var(--primary-orange);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    z-index: 1000;
+}
+
+.menu-button:hover {
+    background-color: #c28b22;
+    transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+    .parish-section, .parish-section.reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+}
