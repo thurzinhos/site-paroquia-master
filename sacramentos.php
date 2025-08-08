@@ -25,7 +25,7 @@ $mysqli->close();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body style="background-image: url('./imagens/FotoFundo3.png')">
 
 <header class="site-header">
     <div class="header-content">
@@ -102,7 +102,7 @@ $mysqli->close();
 
 </main>
 
-<a href="index.html" class="menu-button">MENU</a>
+<a href="index.php" class="menu-button">MENU</a>
 
 </body>
 </html>

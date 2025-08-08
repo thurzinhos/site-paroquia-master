@@ -29,11 +29,11 @@
 <div class="background-wrapper">
     <section class="navigation-section">
         <div class="nav-buttons">
-            <a href="paroquia.html" class="nav-button">A PARÓQUIA</a>
-            <a href="capelas.html" class="nav-button">CAPELAS</a>
+            <a href="paroquia.php" class="nav-button">A PARÓQUIA</a>
+            <a href="capelas.php" class="nav-button">CAPELAS</a>
             <a href="sacramentos.php" class="nav-button">SACRAMENTOS</a>
-            <a href="contatos.html" class="nav-button">CONTATOS</a>
-            <a href="dizimo.html" class="nav-button">DÍZIMO</a>
+            <a href="contatos.php" class="nav-button">CONTATOS</a>
+            <a href="dizimo.php" class="nav-button">DÍZIMO</a>
             <a href="cadastro.php" class="nav-button">CADASTRO</a>
         </div>
     </section>
