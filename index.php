@@ -35,6 +35,7 @@
             <a href="contatos.php" class="nav-button">CONTATOS</a>
             <a href="dizimo.php" class="nav-button">DÍZIMO</a>
             <a href="cadastro.php" class="nav-button">CADASTRO</a>
+            <a href="admin.php" class="nav-button">ADMIN</a>
         </div>
     </section>
     <section class="events-section">
